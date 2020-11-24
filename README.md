@@ -1,5 +1,5 @@
 # BCAD-Work
 
-BCAD Nicola Wilkin challenges;
+Repository created for the 'Nicola Wilkin' challenges, BCAD.
 
-This repository is used for me to paste my work in.
+This repository contains my answers for the challenges.
