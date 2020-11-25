@@ -1,6 +1,6 @@
 """Gummy Bear Joke"""
 # 003.py
-# Return "No, it's a GUMMY BEAR!" if joke incorrect, if joke == True return "Congratulations, you guessed it!".
+# Send a gummy bear joke.
 
 # Importing Modules
 import time
@@ -10,14 +10,14 @@ import time
 # Defining Functions
 def jokes():
     """Gummy Bear Joke"""
-    print("Before answering this question, the initials of the 2 words must be capital, otherwise it will return false.")
+    print('Before answering this question, the initials of the 2 words must be capital, otherwise it will return false.')
     time.sleep(5)
-    answer = "Gummy Bear"
+    answer = 'Gummy Bear'
     joke = input("What do you call a bear with no teeth? ")
     if joke == answer:
-        print("Congratulations, you guess it!")
+        print('Congratulations, you guess it!')
     else:
-        print("No, it's a GUMMY BEAR!")
+        print('No, its a GUMMY BEAR!')
 
 
 def main():
