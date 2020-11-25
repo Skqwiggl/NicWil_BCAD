@@ -1,25 +1,27 @@
 """Addition"""
 # 004.py
-# User enters 2 numbers, find sum & display.
+# Find the sum of the values.
 
 
 # Start
 # Defining Functions
 def addition():
     """Finds the sum; c."""
-    a = input("Please enter a number for the value for a: ")
-    if not a.isnumeric():
-        print("Your value for a cannot be alphanumeric/blank, please retry.")
-    else:
-        pass
+    while True:
+        a = input('Please enter a number for the value for a: ')
+        if not a.isnumeric():
+            print('Your value for a cannot be alphanumeric/blank, please retry.')
+        else:
+            break
 
-    b = input("Now enter a value for b: ")
-    if not b.isnumeric():
-        print("Your value for b cannot be alphanumeric/blank, please re-enter.")
-    else:
-        a, b = float(a), float(b)
-        c = a + b
-        print(a, "+", b, "=", c)
+    while True:
+        b = input('Now enter a value for b: ')
+        if not b.isnumeric():
+            print('Your value for b cannot contain anything other than numerals.')
+        else:
+            a, b = float(a), float(b)
+            c = a + b
+            print(a, '+', b, '=', c)
 
 
 def main():
