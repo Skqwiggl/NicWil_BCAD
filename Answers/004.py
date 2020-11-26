@@ -6,7 +6,7 @@
 # Start
 # Defining Functions
 def addition():
-    """Finds the sum; c."""
+    """Finds the sum of a + b."""
     while True:
         a = input('Please enter a value for a: ')
         if '.' in a:
