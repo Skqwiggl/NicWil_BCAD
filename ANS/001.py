@@ -1,6 +1,6 @@
 """FirstName"""
 # 001.py
-# Return users' forename.
+# Ask for users' forename and display it.
 
 # Importing Modules
 import time
