@@ -1,6 +1,6 @@
 # BCAD-Work
 
-Brighton College Abu Dhabi, Information Computing Technologies, Nichola Wilkin Challenges.
+BCAD, ICT, Nichola Wilkin Challenges.
 
 
 Description:
