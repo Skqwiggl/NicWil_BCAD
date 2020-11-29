@@ -1,13 +1,13 @@
 # BCAD-Work
 
-Repository created for the 'Nicola Wilkin' challenges, BCAD 🏫.
+Brighton College Abu Dhabi, Information Computing Technologies, Nicola Wilkin Challenges.
 
 
-Brief Description;
+Description:
 
 • This repository was created for me to syntax and organise my code in one place rather than upload media to show my work.
 
-Where to find?
+Location:
 
 • In the ANS folder contain my answers.
 
