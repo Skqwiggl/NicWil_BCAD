@@ -1,6 +1,6 @@
 """Birthday"""
 # 007.py
-# Ask for users name, and age, cur.age + 1 = next age.
+# Ask for users' forename and age, then display their age the following year. 
 
 
 # Defining Functions
