@@ -1,32 +1,20 @@
-"""FirstName"""
-# 001.py
-# Ask for users' forename and display it.
+"""Forename"""
+# Ask for the users' name then display it.
 
-# Importing Modules
 import time
 
 
-# Start
-# Defining Functions
-def primaryname():
+def forename():
     """Return primary name."""
     while True:
-        name_1 = input('Please enter your firstname: ')
-        if not name_1.isalpha():
-            print('Your firstname cannot contain anything other than alphabets.')
+        fornam = input("Enter your forename: ")
+        if not fornam.isalpha():
+            print("Your firstname cannot contain anything other than alphabets.")
         else:
-            print('Processing...')
+            print("Processing...")
             time.sleep(2)
-            print('Hello ' + name_1 + '!')
+            print("Hello " + fornam + "!")
             break
 
 
-def main():
-    """Driver"""
-    primaryname()
-
-
-# Calling Functions
-main()
-
-# End
+forename()
