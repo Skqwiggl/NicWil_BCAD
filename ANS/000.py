@@ -1,5 +1,4 @@
-"""Forename"""
-# Ask for the users' name then display it.
+"""Ask for the users' name then display it."""
 
 import time
 
