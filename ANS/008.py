@@ -1,46 +1,56 @@
-"""Convert £ - €"""
+"""£ : €"""
 
-import time
+from time import sleep
+from random import uniform
+from tqdm import tqdm
+from forex_python.converter import CurrencyRates
+
+c = CurrencyRates()
 
 
 def convertor():
     """Converts currency from one to another."""
-    print('£:€')
-    time.sleep(2)
+    print('£ : €')
+    sleep(1)
     while True:
-        value = input('Enter an amount of money\n')
+        value = input('Enter an amount of money:\n')
         try:
-            value = float(value) or int(value)
-            break
+            if '.' in value:
+                value = float(value)
+                break
+            elif '.' not in value:
+                value = int(value)
+                break
         except ValueError:
-            print('Your value for your indeterminate cannot be anything other than a number.\n')
-            continue
+            print('Your entrance for a cannot be anything but a number.')
 
-    while True:
+    conv = ''
+
+    while conv.lower() != 'euros' and conv.lower() != 'pounds':
+        sleep(.2)
         conv = input('What currency do you want to convert from, Euros or Pounds?\n')
+        if conv.lower() != 'euros' and conv.lower() != 'pounds':
+            print('You may only enter Euros or Pounds')
 
-        if conv == 'Pounds':
-            pound = float(value) * 1.12
-            time.sleep(1)
-            print('Converting Pounds to Euros...\n')
-            time.sleep(2)
-            print(value, conv, 'is approximately', pound, 'euros.')
-            break
-        elif conv:
-            euro = float(value) * 0.89
-            if conv == 'Euros':
-                time.sleep(1)
-                print('Converting Euros to Pounds...\n')
-                time.sleep(2)
-                if conv == 1:
-                    print(value, conv, 'is approximately', euro, 'pounds.')
-                else:
-                    print(value, conv, 'are approximately', euro, 'pounds.')
-                    break
-        elif conv:
-            print('ERR_1: Your value cannot be anything other than Euros or Pounds.\n')
+    if conv.lower() == 'pounds':
+        pound = c.convert('GBP', 'EUR', value)
+        for _ in tqdm(range(100), desc='Converting Pounds to Euros'):
+            sleep(uniform(0.004, 0.01))
+        sleep(.2)
+        if conv == 1:
+            print(f'£{value} is approximately €{pound}')
         else:
-            print('ERR_2: Please enter Euros or Pounds, nothing else.\n')
+            print(f'£{value} are approximately €{pound}')
+
+    else:
+        euro = c.convert('EUR', 'GBP', value)
+        for _ in tqdm(range(100), desc='Converting Euros to Pounds'):
+            sleep(uniform(0.004, 0.01))
+        sleep(.2)
+        if conv == 1:
+            print(f'€{value} is approximately £{euro}.')
+        else:
+            print(f'€{value} are approximately £{euro}.')
 
 
 convertor()
