@@ -12,15 +12,15 @@ def convertor():
     """Converts currency from one to another."""
     print('£ : €')
     sleep(1)
-    while True:
+    value = ''
+
+    while type(value) != float and type(value) != int:
         value = input('Enter an amount of money:\n')
         try:
             if '.' in value:
                 value = float(value)
-                break
-            elif '.' not in value:
+            else:
                 value = int(value)
-                break
         except ValueError:
             print('Your entrance for a cannot be anything but a number.')
 
