@@ -5,7 +5,7 @@ BCAD, ICT, Nichola Wilkin Challenges.
 
 Description:
 
-• This repository was created for me to syntax and organise my code in one place rather than upload media to show my work.
+• This repository was created for me to syntax and organise my code in one place rather than upload images to show my work.
 
 Location:
 
