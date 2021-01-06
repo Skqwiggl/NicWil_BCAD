@@ -1,11 +1,11 @@
-"""Test"""
+"""Ask the user their name then display their name if function is satisfied"""
 
 import re
 
 
 def input_name():
     """
-User inputs their name
+Ask user to input their wholename separately; forename, surname.
     :return:
     """
     while True:
