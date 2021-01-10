@@ -1,30 +1,34 @@
-"""Ask the user their name then display their name if function is satisfied"""
+"""Ask user for their name then greet them"""
 
 import re
 
+from random import uniform
+from tqdm import tqdm
 
-def input_name():
-    """
-Ask user to input their wholename separately; forename, surname.
-    :return:
-    """
-    while True:
-        forename = input('Enter your forename:\n')
-        if match := re.fullmatch(r'[A-Za-z \-_]+', forename):
-            match.group(0)
-            break
-        else:
-            print('Your name may only contain alphabets.')
+from time import sleep
 
-    while True:
-        surname = input('Enter your surname:\n')
-        if match := re.fullmatch(r'[A-Za-z \-_]+', surname):
-            match.group(0)
-            break
-        else:
-            print('Your name may only contain alphabets.')
+import sys
 
-    print(f'Hello, {forename} {surname}!')
+print('If you want to end, type \'!END\'.')
+ans = '!END'
 
+nam_re_spec = r'[A-Za-z _\-!]+'
 
-input_name()
+match = False
+sleep(.2)
+while not match:
+    sleep(.2)
+    usr_str = input('Enter your name:\n')
+    if usr_str == ans:
+        sys.exit()
+    match = re.fullmatch(nam_re_spec, usr_str)
+    if match:
+        for _ in tqdm(range(100), desc='Processing name'):
+            sleep(uniform(.005, .004))
+        print(f'Hello {usr_str.title()}!')
+    else:
+        print('Your name must be alphabetic. Else most contain;\nExt chars inclusive: \'-\' & \' \', hyphen/dash and/'
+              'or space; Must be accompanied by a letter.')
+        sleep(4)
+
+whonam = match.group(0)
