@@ -1,31 +1,24 @@
 """Ask user for their name then greet them"""
 
-import re
+import re as r
 
-from random import uniform
-from tqdm import tqdm
+from random import uniform as u
+from tqdm import tqdm as t
 
-from time import sleep
+from time import sleep as s
 
-import sys
+nam_re_spec = r'^[a-zA-Z](?:[a-zA-Z][\ \' \-]{0,1})+[a-zA-Z]$'
 
-print('If you want to end, type \'!END\'.')
-ans = '!END'
-
-nam_re_spec = r'^[a-zA-Z0-9](?:\w[\ \-]{0,1})+[a-zA-Z]$'
-
-match = False
-while not match:
+mat = False
+while not mat:
     usr_str = input('Enter your name:\n')
-    if usr_str == ans.lower() or usr_str.upper() == ans:
-        sys.exit()
-    match = re.fullmatch(nam_re_spec, usr_str)
-    if match:
-        for _ in tqdm(range(100), desc='Processing name'):
-            sleep(uniform(.005, .004))
+    mat = r.fullmatch(nam_re_spec, usr_str)
+    if mat:
+        for _ in t(range(100), desc='Processing name'):
+            s(u(.005, .004))
         print(f'Hello {usr_str.title()}!')
     else:
-        print('Your name must be alphabetic. Else most contain;\nExt chars inclusive: \'-\' & \' \', hyphen/dash and/'
-              'or space; Must be accompanied by a letter.')
+        print('Your name must be alphabetic. Else most contain;\nExt chars inclusive: -, \' \', \'; Must be accompanied'
+              ' by a letter.')
 
-whonam = match.group(0)
+whonam = mat.group(0)
