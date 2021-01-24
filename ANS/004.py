@@ -1,47 +1,44 @@
-"""Find the sum of the 2 numbers."""
+"""Ask the user's name & age, then display their forthcoming age."""
 
+import re as r
 
-def addition():
-    """Finds the sum; c."""
-    while True:
-        a = input('Please enter a value for a: ')
-        try:
-            if '.' in a:
-                a = float(a)
-                break
-            elif '.' not in a:
-                a = int(a)
-                break
-        except ValueError:
-            print('Your value for a cannot be anything but a number, please')
+from random import uniform as u
+from tqdm import tqdm as t
 
-    while True:
-        b = input('Please enter a value for b: ')
-        try:
-            if '.' in b:
-                b = float(b)
-                break
-            elif '.' not in b:
-                b = int(b)
-                break
-        except ValueError:
-            print('Your value for b cannot be anything but a number, please')
+from time import sleep as s
 
-    while True:
-        c = input('Please enter a value for c: ')
-        try:
-            if '.' in c:
-                c = float(c)
-                break
-            elif '.' not in c:
-                c = int(c)
-                break
-        except ValueError:
-            print('Your value for c cannot be anything but a number, please')
+nam_re_spec = r'^[a-zA-Z](?:[a-zA-Z][\ \' \-]{0,1})+[a-zA-Z]$'
 
-    d = a + b
-    e = d * c
-    print('The answer is, ', e)
+while True:
+    usr_str = input('Enter your name:\n')
+    mat = r.fullmatch(nam_re_spec, usr_str)
+    if mat:
+        break
+    else:
+        print('Your name must be alphabetic. Else most contain;\nExt chars inclusive: -, \' \', \'; Must be accompanied'
+              ' by a letter.')
 
+whonam = mat.group(0)
 
-addition()
+ag_re_spec = r'^[0-9]{1,3}$'
+
+mat_2 = False
+while not mat_2:
+    try:
+        ag_inp = -1
+        ag_num = f'How old are you, {usr_str.title()}?\n'
+        while not 6 <= ag_inp <= 122:
+            ag_inp = int(input(ag_num))
+            if not 6 <= ag_inp <= 122:
+                print(f'You cannot be {ag_inp}.')
+        mat_2 = r.fullmatch(ag_re_spec, str(ag_inp))
+        if mat_2:
+            for _ in t(range(100), desc='Calculating Age'):
+                s(u(.005, .004))
+            new_ag = int(ag_inp) + 1
+            print(f'{usr_str.title()} you\'ll be {new_ag} next year!')
+
+    except ValueError:
+        print('You may only enter ints.')
+
+ag = mat.group(0)
